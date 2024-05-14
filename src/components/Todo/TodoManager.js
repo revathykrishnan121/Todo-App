@@ -30,6 +30,13 @@ function TodoManager() {
     settodoListData([...todoListdata, todoData]);
   };
 
+  const handleUpdate = (todoData) => {
+    const todoList = [...todoListdata];
+    const todoItemIndex = todoList.findIndex(item => item .id === todoData.id);
+    todoList[todoItemIndex] = todoData;
+    settodoListData(todoList);
+  }
+
   //Removing the todo item
   const handleRemove = (todoData) => {
     const removedTodo = todoListdata.filter((data) => data.id !== todoData.id);
@@ -42,6 +49,7 @@ function TodoManager() {
       <TodoList
         todoListData={todoListdata}
         handleRemove={handleRemove}
+        handleUpdate={handleUpdate}
       ></TodoList>
     </div>
   );

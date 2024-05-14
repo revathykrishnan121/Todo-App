@@ -23,7 +23,7 @@ function AddTodo({ handleSubmit }) {
     event.preventDefault();
     handleSubmit({
       ...todoState,
-      id: Math.random(),
+      id: Date.now(),
     });
     dispatcher({ type: "clearField" });
   };
